@@ -1,5 +1,6 @@
 class Link < ApplicationRecord
 	validates :slug, presence: true
+  validates :given_url, :format => URI::regexp(%w(http https))
 
 	before_validation :generate_slug, on: :create
 
