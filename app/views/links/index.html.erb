@@ -1,0 +1,36 @@
+<div class="panel panel-default panel-custom centered">
+
+	<%= form_for @link, :html => {:class => "form-inline  text-center"}  do |f|%>
+		<div class="form-group">
+		<%= f.label :title %>
+		<%= f.text_field :title, class: "form-control"%>
+		</div>
+		<div class="form-group"> 
+		<%= f.label :url %>
+		<%= f.text_field :given_url,  class: "form-control" %>
+		</div>
+		<%= f.submit "Shorten Url", class: 'btn btn-default btn-primary'%>
+	<%end%>
+</div>	
+
+
+<div class="container">
+
+	<h2>Urls</h2>
+  <p>All shorten urls</p>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Original Url</th>
+        <th>Created at</th>
+        <th>Short Url</th>
+        <th>All Clicks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @links %>
+    </tbody>  
+  </table> 
+</div>
+
+	
