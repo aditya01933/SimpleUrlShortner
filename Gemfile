@@ -38,6 +38,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5'
   gem 'guard-rspec', require: false
+  gem 'rails-controller-testing'
 end
 
 group :development do

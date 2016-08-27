@@ -5,7 +5,7 @@ RSpec.describe LinksController, type: :controller do
 		it 'should create a short url' do
 			count = Link.count
 			@response = response
-			post :create, link: {given_url: "youtube.com"}
+			post :create, link: {given_url: "http://www.youtube.com"}, :format => 'js'
 			expect(Link.count).to eq(count+1) 
 		end
 		it 'should return 200 status' do
@@ -14,13 +14,13 @@ RSpec.describe LinksController, type: :controller do
 	end
 	describe '#GET show' do
 		it 'should redirect to given url' do
-			link = Link.first
-			get :show, id: link.slug  
+			link = Link.create(given_url: "http://www.youtube.com")
+			get :show, slug: link.slug  
 			expect(response).to redirect_to(link.given_url)
 		end
 		it 'should increase visit count' do
-			link = Link.first
-			get :show, id: link.slug  
+			link = Link.create(given_url: "http://www.youtube.com")
+			get :show, slug: link.slug  
 			expect(Link.first.clicks).to eq(link.clicks + 1)
 		end
 	end

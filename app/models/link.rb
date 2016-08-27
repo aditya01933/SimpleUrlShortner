@@ -1,7 +1,7 @@
 class Link < ApplicationRecord
 	validates :slug, presence: true
 
-	before_create :generate_slug
+	before_validation :generate_slug, on: :create
 
   def increment_clicks!
   	new_click = self.clicks += 1
