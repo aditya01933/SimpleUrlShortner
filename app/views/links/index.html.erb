@@ -1,12 +1,13 @@
+
 <div class="panel panel-default panel-custom centered">
 
-	<%= form_for @link, :html => {:class => "form-inline  text-center"}  do |f|%>
+	<%= form_for @link, remote: true, :html => {:class => "form-inline  text-center"}  do |f|%>
 		<div class="form-group">
 		<%= f.label :title %>
 		<%= f.text_field :title, class: "form-control"%>
 		</div>
 		<div class="form-group"> 
-		<%= f.label :url %>
+		<%= f.label :given_url %>
 		<%= f.text_field :given_url,  class: "form-control" %>
 		</div>
 		<%= f.submit "Shorten Url", class: 'btn btn-default btn-primary'%>
@@ -18,7 +19,7 @@
 
 	<h2>Urls</h2>
   <p>All shorten urls</p>
-  <table class="table table-hover">
+  <table class="table table-hover" id="link-table">
     <thead>
       <tr>
         <th>Original Url</th>
