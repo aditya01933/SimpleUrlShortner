@@ -10,7 +10,7 @@ class Link < ApplicationRecord
   end
 
   def short_url
-  	"http://localhost:3000/" + self.slug 
+  	"http://adi-tw.herokuapp.com/" + self.slug 
   end
 
   protected
