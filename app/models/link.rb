@@ -1,15 +1,15 @@
 class Link < ApplicationRecord
 	validates :slug, presence: true
 
-	before_validation :generate_slug
+	before_create :generate_slug
 
   def increment_clicks!
-  	self.clicks += 1
-  	self.save!
+  	new_click = self.clicks += 1
+    update(clicks: new_click)
   end
 
   def short_url
-  	"http://adi.tw/" + self.slug 
+  	"http://localhost:3000/" + self.slug 
   end
 
   protected
